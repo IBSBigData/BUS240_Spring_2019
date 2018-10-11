@@ -1,2 +1,3 @@
-# BUS40_Fall2018
-Files and scripts for IBS course BUS240 Information Visualization
+# BUS240_Fall2018
+## Files and scripts for IBS course BUS240 Information Visualization
+This repository is for the exclusive use of students enrolled in IBS BUS240 during Module II of Fall 2018
