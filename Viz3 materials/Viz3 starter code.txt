@@ -1,0 +1,109 @@
+---
+title: "Viz3"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Introduction
+You will use this code as a template for your Visualization 3 assignment. The first step is to call a set of packages that you *might* use in this assignment. The final choices belong to you.
+
+Note that each code chunk is set off with special tags.
+
+```{r, warning=FALSE, message=FALSE}  
+library(ggplot2)
+library(dplyr)
+library(ggvis)
+library(WDI)
+library(plotly)
+```
+
+# Call package `WDI` to retrieve most updated figures available.
+
+In this assignment, we need to update 8 data series from the WDI:
+
+|Tableau Name	|WDI Series
+|----------------|:-----------------|
+|Birth Rate	|SP.DYN.CBRT.IN|
+|Health Exp % GDP	|SH.XPD.TOTL.ZS|
+|Health Exp/Capita	|SH.XPD.PCAP|
+|Infant Mortality Rate	|SP.DYN.IMRT.IN|
+|Internet Usage	|IT.NET.USER.ZS|
+|Life Expectancy (Total)	|SP.DYN.LE00.IN|
+|Mobile Phone Usage	|IT.CEL.SETS.P2|
+|Population Total	|SP.POP.TOTL|
+
+The next code chunk will call the WDI API and fetch the years 2000 through 2016, as available. It will then remove the country regional and other aggregates.
+
+```{r}
+birth <- "SP.DYN.CBRT.IN"
+hxpgdp <- "SH.XPD.TOTL.ZS"
+hxpcap <- "SH.XPD.PCAP"
+infmort <- "SP.DYN.IMRT.IN"
+net <-"IT.NET.USER.ZS"
+lifeexp <- "SP.DYN.LE00.IN"
+mobile <- "IT.CEL.SETS.P2"
+pop <- "SP.POP.TOTL"
+
+# create a vector of the desired indicator series
+indicators <- c(birth, hxpgdp, hxpcap, infmort, net, lifeexp, mobile, pop)
+
+newdata <- WDI(country="all", indicator = indicators, 
+     start = 2000, end = 2017, extra = TRUE)
+
+# remove country groupings
+newdata$longitude[newdata$longitude==""] <- NA
+countries <- filter(newdata, !is.na(longitude))  # drop aggregate groups
+## rename columns for each of reference
+countries <- rename(countries, birth = SP.DYN.CBRT.IN, 
+       hxpgdp = SH.XPD.TOTL.ZS, hxpcap = SH.XPD.PCAP, 
+       infmort = SP.DYN.IMRT.IN, net  = IT.NET.USER.ZS,
+       lifeexp = SP.DYN.LE00.IN, mobile = IT.CEL.SETS.P2, 
+       pop = SP.POP.TOTL)
+
+glimpse(countries) ## data frame column names appear here
+```
+
+# Population Health Indicators graph (Tableau tab 2)
+
+* Replace this text chunk with an explanation of your approach to the second graph, which averages the measures over all available years. How did you achieve the colored rectangles, or did you need to take an alternative approach?*
+
+```{r, Health_Ind}
+## Your plotting code goes here
+
+
+```
+
+* Replace this text chunk with a sentence comparing this graph to the original Tableau version. Has the world changed much?
+
+
+# Care Spending 2015 (Tableau tab 3)
+
+* Replace this text chunk with an explanation of your approach to this graph, commenting on how you included a slider to allow users to choose a year.*
+
+```{r, Care_Spend}
+## Your plotting code goes here
+
+
+```
+
+* Replace this text chunk with a sentence comparing this graph to the original Tableau version. Are the same countries still at the top of the list?
+
+
+# Technology graph (Tableau tab 4)
+
+* Replace this text chunk with an explanation of your approach to this graph.*
+
+```{r, Technology}
+## Your plotting code goes here
+
+
+```
+
+* Replace this text chunk with a sentence comparing this graph to the original Tableau version. Has the world changed much?
+
+# Conclusion
+
+** write a sentence or two summarizing noteworthy changes in recent years.
+#####
+
