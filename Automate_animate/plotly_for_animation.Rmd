@@ -1,0 +1,121 @@
+---
+title: "Using plotly for animation and more"
+author: "Robert Carver"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Introduction
+In the most recent DataCamp lesson, you worked with a so-called `ggplot2` *extension* called `gganimate` to introduce movement into a ggplot graph. It turns out that several other programs and packages are necessary for gganimate. An alternative is the package `plotly` which "wraps" around `ggplot2` objects and allows for interactivity and animation with techniques like brushing, zooming, panning, animation and more.
+
+## This document
+This page was built as an RNotebook using `rmarkdown` and then "knitted" with `knitr` . Most of the examples and code are taken and adapted from *The Plotly Cookbook* by Carson Sievert, available online at https://plotly-book.cpsievert.me/index.html
+
+
+# The code and examples
+We start by installing and calling several r packages
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(plotly)
+library(dplyr)
+library(gapminder)
+```
+
+The first few examples use some data about Texas housing prices, which is bundled with `ggplot2`. The relevant data frame is called `txhousing`.
+
+1.  Several ways to manage overplotting, with brushing added:
+
+
+```{r, warning =FALSE, message=FALSE, error=FALSE}
+p <- ggplot(txhousing, aes(date, median)) +
+     geom_line(aes(group = city), alpha = 0.2)
+subplot(
+     p, ggplotly(p, tooltip = "city"), 
+     ggplot(txhousing, aes(date, median)) + geom_bin2d(),
+     ggplot(txhousing, aes(date, median)) + geom_hex(),
+     nrows = 2, shareX = TRUE, shareY = TRUE,
+     titleY = FALSE, titleX = FALSE
+)
+```
+
+2.  There are many cities in Texas. Here is a multi-line graph, highlighting one city.
+
+```{R}
+
+tx <- group_by(txhousing, city)
+# initiate a plotly object with date on x and median on y
+p <- plot_ly(tx, x = ~date, y = ~median)
+
+
+# add a line highlighting houston
+add_lines(
+     # plots one line per city since p knows city is a grouping variable
+     add_lines(p, alpha = 0.2, name = "Texan Cities", hoverinfo = "none"),
+     name = "Houston", data = filter(txhousing, city == "Houston")
+)
+
+```
+
+### More examples using the mtcars data frame
+
+You may recall the `mtcars` data frame in r. It contains data about car characteristics, compiled by Motor Trend magazine.
+
+```{r}
+glimpse(mtcars)
+head(mtcars)
+```
+
+1.  Allow panning (moving the entire plot within a window)
+
+```{r, message=FALSE, error=FALSE}
+p <- ggplot(fortify(mtcars), aes(wt, mpg)) + 
+     geom_point() + geom_smooth()
+gg <- ggplotly(p)
+layout(gg, dragmode = "pan")
+
+```
+
+
+2.  Add a range slider, as in Google Finance
+
+
+```{r, message=FALSE, error=FALSE}
+p <- ggplot(fortify(mtcars), aes(wt, mpg)) + 
+     geom_point() + geom_smooth()
+gg <- ggplotly(p)
+rangeslider(gg)
+```
+
+
+3.  How about a 3-D scatterplot?
+
+```{r}
+plot_ly(mpg, x = ~cty, y = ~hwy, z = ~cyl) %>%
+  add_markers(color = ~cyl)
+```  
+  
+4.  More animation, a la Tableau and Hans Rosling
+
+```{r, message=FALSE, error=FALSE}
+data(gapminder, package = "gapminder")
+
+meanLife <- with(gapminder, tapply(lifeExp, INDEX = continent, mean))
+gapminder$continent <- factor(
+     gapminder$continent, levels = names(sort(meanLife))
+)
+base <- gapminder %>%
+     plot_ly(x = ~gdpPercap, y = ~lifeExp, size = ~pop, 
+             text = ~country, hoverinfo = "text") %>%
+     layout(xaxis = list(type = "log"))
+
+base %>%
+     add_markers(color = ~continent, alpha = 0.2, showlegend = F) %>%
+     add_markers(color = ~continent, frame = ~year, ids = ~country) %>%
+     animation_opts(1500, redraw = FALSE)
+```
+   
+#  Conclusion
+
+Animation and interactivity can help in exploration, presentation, and interactive story-telling. Several R pacakges are available to facilitate the process, and in some cases to offer capabilities not yet available in Tableau.
