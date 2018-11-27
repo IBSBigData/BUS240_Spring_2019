@@ -33,7 +33,7 @@ In this assignment, we need to update 8 data series from the WDI:
 |Mobile Phone Usage	|IT.CEL.SETS.P2|
 |Population Total	|SP.POP.TOTL|
 
-The next code chunk will call the WDI API and fetch the years 2000 through 2016, as available. It will then remove the country regional and other aggregates.
+The next code chunk will call the WDI API and fetch the years 2000 through 2017, as available. It will then remove the country regional and other aggregates.
 
 ```{r}
 birth <- "SP.DYN.CBRT.IN"
