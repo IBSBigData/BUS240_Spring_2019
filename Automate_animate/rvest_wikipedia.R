@@ -13,3 +13,5 @@ length(tables)
 Table3 <- html_table(tables[[3]])
 Table4 <- html_table(tables[[4]])
 Table4 <- select(Table4, -Auto) # remove the unwanted column
+View(Table3)
+View(Table4)
