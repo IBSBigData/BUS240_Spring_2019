@@ -1,17 +1,33 @@
-# some packages for BUS240 Session 06 & 07
-install.packages("tidyverse")
-install.packages("gapminder")
-install.packages("lubridate")
-install.packages("PerformanceAnalytics")
-install.packages("GGally")
-install.packages("rvest")
-install.packages("geomnet")
-install.packages("maps")
-install.packages("car")
-install.packages("animation")
-install.packages("plotly")
+# BUS240_packages.R
+# Packages that we'll use during the BUS240 Module Spring Semester 2019
+# Revised 2/28/2019
 
-############################################################
-#  One package used in DataCamp is called "gganimate", which installed
-# easily in older versions of R, but quite complicated on current version of R
-# we'll use plotly instead.
+install.packages("tidyverse") # installs numerous other
+# packages, including ggplot2, dplyr, tidyr,readr, purrr, tibble.
+
+install.packages("animation")
+install.packages("car")
+install.packages("corrplot")
+install.packages("datasets")
+install.packages("gapminder")
+install.packages("gapminder")
+install.packages("gcookbook")
+install.packages("geomnet")
+install.packages("GGally")
+install.packages("GGally")
+install.packages("ggmap")
+install.packages("html_widgets")
+install.packages("leaflet")
+install.packages("manipulateWidget")
+install.packages("maps")
+install.packages("maps")
+install.packages("maps")
+install.packages("PerformanceAnalytics")
+install.packages("plotly")
+install.packages("radarchart")
+install.packages("RColorBrewer")
+install.packages("rmarkdown")
+install.packages("shiny")
+install.packages("shinydashboard")
+install.packages("treemap")
+install.packages("WDI")
