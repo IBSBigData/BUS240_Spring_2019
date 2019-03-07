@@ -7,7 +7,8 @@ output:
 ---
 
 # Introduction
-In the most recent DataCamp lesson, you worked with a so-called `ggplot2` *extension* called `gganimate` to introduce movement into a ggplot graph. It turns out that several other programs and packages are necessary for gganimate. An alternative is the package `plotly` which "wraps" around `ggplot2` objects and allows for interactivity and animation with techniques like brushing, zooming, panning, animation and more.
+In the most recent DataCamp lesson, you learned a bit about `plotly`, which is a powerful approach to animation and interactivity. 
+Plotly offers 2 basic methods for creating interactive graphs. The simpler of the two methods  "wraps" around `ggplot2` objects and allows for interactivity and animation with techniques like brushing, zooming, panning, animation and more.
 
 ## This document
 This page was built as an RNotebook using `rmarkdown` and then "knitted" with `knitr` . Most of the examples and code are taken and adapted from *The Plotly Cookbook* by Carson Sievert, available online at https://plotly-book.cpsievert.me/index.html
