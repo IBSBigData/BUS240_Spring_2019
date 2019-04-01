@@ -1,55 +1,55 @@
-store_nbr,city,state,Country,type,cluster
-1,Quito,Pichincha,Ecuador,D,13
-2,Quito,Pichincha,Ecuador,D,13
-3,Quito,Pichincha,Ecuador,D,8
-4,Quito,Pichincha,Ecuador,D,9
-5,Santo Domingo,Santo Domingo de los Tsachilas,Ecuador,D,4
-6,Quito,Pichincha,Ecuador,D,13
-7,Quito,Pichincha,Ecuador,D,8
-8,Quito,Pichincha,Ecuador,D,8
-9,Quito,Pichincha,Ecuador,B,6
-10,Quito,Pichincha,Ecuador,C,15
-11,Cayambe,Pichincha,Ecuador,B,6
-12,Latacunga,Cotopaxi,Ecuador,C,15
-13,Latacunga,Cotopaxi,Ecuador,C,15
-14,Riobamba,Chimborazo,Ecuador,C,7
-15,Ibarra,Imbabura,Ecuador,C,15
-16,Santo Domingo,Santo Domingo de los Tsachilas,Ecuador,C,3
-17,Quito,Pichincha,Ecuador,C,12
-18,Quito,Pichincha,Ecuador,B,16
-19,Guaranda,Bolivar,Ecuador,C,15
-20,Quito,Pichincha,Ecuador,B,6
-21,Santo Domingo,Santo Domingo de los Tsachilas,Ecuador,B,6
-22,Puyo,Pastaza,Ecuador,C,7
-23,Ambato,Tungurahua,Ecuador,D,9
-24,Guayaquil,Guayas,Ecuador,D,1
-25,Salinas,Santa Elena,Ecuador,D,1
-26,Guayaquil,Guayas,Ecuador,D,10
-27,Daule,Guayas,Ecuador,D,1
-28,Guayaquil,Guayas,Ecuador,E,10
-29,Guayaquil,Guayas,Ecuador,E,10
-30,Guayaquil,Guayas,Ecuador,C,3
-31,Babahoyo,Los Rios,Ecuador,B,10
-32,Guayaquil,Guayas,Ecuador,C,3
-33,Quevedo,Los Rios,Ecuador,C,3
-34,Guayaquil,Guayas,Ecuador,B,6
-35,Playas,Guayas,Ecuador,C,3
-36,Libertad,Guayas,Ecuador,E,10
-37,Cuenca,Azuay,Ecuador,D,2
-38,Loja,Loja,Ecuador,D,4
-39,Cuenca,Azuay,Ecuador,B,6
-40,Machala,El Oro,Ecuador,C,3
-41,Machala,El Oro,Ecuador,D,4
-42,Cuenca,Azuay,Ecuador,D,2
-43,Esmeraldas,Esmeraldas,Ecuador,E,10
-44,Quito,Pichincha,Ecuador,A,5
-45,Quito,Pichincha,Ecuador,A,11
-46,Quito,Pichincha,Ecuador,A,14
-47,Quito,Pichincha,Ecuador,A,14
-48,Quito,Pichincha,Ecuador,A,14
-49,Quito,Pichincha,Ecuador,A,11
-50,Ambato,Tungurahua,Ecuador,A,14
-51,Guayaquil,Guayas,Ecuador,A,17
-52,Manta,Manabi,Ecuador,A,11
-53,Manta,Manabi,Ecuador,D,13
-54,El Carmen,Manabi,Ecuador,C,3
+store_nbr,Country,state,city,type,cluster
+1,Ecuador,Pichincha,Quito,D,13
+2,Ecuador,Pichincha,Quito,D,13
+3,Ecuador,Pichincha,Quito,D,8
+4,Ecuador,Pichincha,Quito,D,9
+5,Ecuador,Santo Domingo de los Tsachilas,Santo Domingo,D,4
+6,Ecuador,Pichincha,Quito,D,13
+7,Ecuador,Pichincha,Quito,D,8
+8,Ecuador,Pichincha,Quito,D,8
+9,Ecuador,Pichincha,Quito,B,6
+10,Ecuador,Pichincha,Quito,C,15
+11,Ecuador,Pichincha,Cayambe,B,6
+12,Ecuador,Cotopaxi,Latacunga,C,15
+13,Ecuador,Cotopaxi,Latacunga,C,15
+14,Ecuador,Chimborazo,Riobamba,C,7
+15,Ecuador,Imbabura,Ibarra,C,15
+16,Ecuador,Santo Domingo de los Tsachilas,Santo Domingo,C,3
+17,Ecuador,Pichincha,Quito,C,12
+18,Ecuador,Pichincha,Quito,B,16
+19,Ecuador,Bolivar,Guaranda,C,15
+20,Ecuador,Pichincha,Quito,B,6
+21,Ecuador,Santo Domingo de los Tsachilas,Santo Domingo,B,6
+22,Ecuador,Pastaza,Puyo,C,7
+23,Ecuador,Tungurahua,Ambato,D,9
+24,Ecuador,Guayas,Guayaquil,D,1
+25,Ecuador,Santa Elena,Salinas,D,1
+26,Ecuador,Guayas,Guayaquil,D,10
+27,Ecuador,Guayas,Daule,D,1
+28,Ecuador,Guayas,Guayaquil,E,10
+29,Ecuador,Guayas,Guayaquil,E,10
+30,Ecuador,Guayas,Guayaquil,C,3
+31,Ecuador,Los Rios,Babahoyo,B,10
+32,Ecuador,Guayas,Guayaquil,C,3
+33,Ecuador,Los Rios,Quevedo,C,3
+34,Ecuador,Guayas,Guayaquil,B,6
+35,Ecuador,Guayas,Playas,C,3
+36,Ecuador,Guayas,Libertad,E,10
+37,Ecuador,Azuay,Cuenca,D,2
+38,Ecuador,Loja,Loja,D,4
+39,Ecuador,Azuay,Cuenca,B,6
+40,Ecuador,El Oro,Machala,C,3
+41,Ecuador,El Oro,Machala,D,4
+42,Ecuador,Azuay,Cuenca,D,2
+43,Ecuador,Esmeraldas,Esmeraldas,E,10
+44,Ecuador,Pichincha,Quito,A,5
+45,Ecuador,Pichincha,Quito,A,11
+46,Ecuador,Pichincha,Quito,A,14
+47,Ecuador,Pichincha,Quito,A,14
+48,Ecuador,Pichincha,Quito,A,14
+49,Ecuador,Pichincha,Quito,A,11
+50,Ecuador,Tungurahua,Ambato,A,14
+51,Ecuador,Guayas,Guayaquil,A,17
+52,Ecuador,Manabi,Manta,A,11
+53,Ecuador,Manabi,Manta,D,13
+54,Ecuador,Manabi,El Carmen,C,3
