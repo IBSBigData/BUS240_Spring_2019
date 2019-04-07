@@ -98,7 +98,7 @@ plot_ly(mpg, x = ~cty, y = ~hwy, z = ~cyl) %>%
   
 4.  More animation, a la Tableau and Hans Rosling
 
-```{r, message=FALSE, error=FALSE}
+```{r, message=FALSE, error=FALSE, warning=FALSE}
 data(gapminder, package = "gapminder")
 
 meanLife <- with(gapminder, tapply(lifeExp, INDEX = continent, mean))
