@@ -2,16 +2,12 @@
 #note:  several of these examples come from https://plot.ly/r/
 # for more details, also see https://plotly-book.cpsievert.me/index.html
 
-#  Will use Shiny at end of script.. install if you don't have it.
-# install.packages("shiny")
-
 # New package:  maniupulateWidget
 install.packages("manipulateWidget")
 
 library(datasets)
 library(tidyverse)
 library(plotly)
-library(shiny)
 library(manipulateWidget)
 
 # a first example inspired by plotly website 
