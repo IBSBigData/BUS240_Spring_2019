@@ -1,0 +1,118 @@
+---
+title: "Viz3getdata"
+output:
+  html_document:
+    df_print: paged
+author:  Robert Carver
+---
+
+# Introduction
+You should use this code as part of your Visualization 3 assignment. You will re-save this Notebook under a different name and modify it to complete the assignment. For example, you should delete all of the text in this section and replace it with your own introduction. 
+
+The first chunk calls the packages that you will need in this assignment.
+
+The second code chunk automatically retrieves the latest data from the World Development Indicators database, for use in the assignment.
+
+## Step 1: library calls to load packages
+
+```{r, warning=FALSE, message=FALSE}  
+library(tidyverse)
+library(leaflet)
+library(WDI)
+```
+
+## Step 2:  Call package `WDI` to retrieve most updated figures available.
+
+In this assignment, we will fetch ten data series from the WDI:
+
+|Tableau Name	|WDI Series
+|----------------|:-----------------|
+|Birth Rate	|SP.DYN.CBRT.IN|
+|Infant Mortality Rate	|SP.DYN.IMRT.IN|
+|Internet Usage	|IT.NET.USER.ZS|
+|Life Expectancy (Total)	|SP.DYN.LE00.IN|
+|Forest Area (% of land) | AG.LND.FRST.ZS |
+|Mobile Phone Usage	|IT.CEL.SETS.P2|
+|Population Total	|SP.POP.TOTL|
+|International Tourism receipts (current US$)|ST.INT.RCPT.CD|
+|Import value index (2000=100) | TM.VAL.MRCH.XD.WD|
+|Export value index (2000=100) | TX.VAL.MRCH.XD.WD|
+
+
+The next code chunk will call the WDI API and fetch the years 1998 through 2018, as available. You will find that only a few variables have data for 2018. The dataframe will also contain the longitude and latitude of the capital city in each country.
+
+*Note* This notebook will take approximately 2 minutes to run. The WDI call is time-consuming as is the process of knitting the file. Be patient.
+
+The World Bank uses a complex, non-intuitive scheme for naming variables. For example, the Birth Rate series is called `SP.DYN.CBRT,IN`.  The code assigns variables names that are more intuitive than the codes assigned by the World Bank, and converts the geocodes from factors to numbers. 
+
+In your code, you will use the data frame called `countries`.
+
+```{r}
+birth <- "SP.DYN.CBRT.IN"
+infmort <- "SP.DYN.IMRT.IN"
+net <-"IT.NET.USER.ZS"
+lifeexp <- "SP.DYN.LE00.IN"
+forest <- "AG.LND.FRST.ZS"
+mobile <- "IT.CEL.SETS.P2"
+pop <- "SP.POP.TOTL"
+tour <- "ST.INT.RCPT.CD"
+import <- "TM.VAL.MRCH.XD.WD"
+export <- "TX.VAL.MRCH.XD.WD"
+
+# create a vector of the desired indicator series
+indicators <- c(birth, infmort, net, lifeexp, forest,
+                mobile, pop, tour, import, export)
+
+countries <- WDI(country="all", indicator = indicators, 
+     start = 1998, end = 2018, extra = TRUE)
+
+## rename columns for each of reference
+countries <- rename(countries, birth = SP.DYN.CBRT.IN, 
+       infmort = SP.DYN.IMRT.IN, net  = IT.NET.USER.ZS,
+       lifeexp = SP.DYN.LE00.IN, forest = AG.LND.FRST.ZS,
+       mobile = IT.CEL.SETS.P2, pop = SP.POP.TOTL, 
+       tour = ST.INT.RCPT.CD, import = TM.VAL.MRCH.XD.WD,
+       export = TX.VAL.MRCH.XD.WD)
+
+# convert geocodes from factors into numerics
+
+countries$lng <- as.numeric(as.character(countries$longitude))
+countries$lat <- as.numeric(as.character(countries$latitude))
+
+# Remove groupings, which have no geocodes
+countries <- countries %>%
+   filter(!is.na(lng))
+```
+
+## A Glimpse of the new dataframe
+
+```{r}
+glimpse(countries)
+```
+
+#Graphing and Comments
+
+Beyond this line, you will insert your original code, following the instructions in the assignment. 
+
+## Assignment 2 plot updated
+
+Replace this text chunk with an explanation of what you have done, and what differences you notice between this viz and your work in Assignment 2
+
+```{r}
+# your code goes here
+```
+## World map showing a variable in 1998
+
+Replace this text chunk with an explanation of what you have done, and what you notice in this map.
+
+```{r}
+# your code goes here
+```
+
+## World map showing the same variable recently
+
+Replace this text chunk with an explanation of what you have done, and what you notice between 1998 and the recent year. 
+
+```{r}
+# your code goes here
+```
